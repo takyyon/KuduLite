@@ -117,7 +117,7 @@ namespace Kudu.Services.Web.Tracing
                 if (Environment.IsAzureEnvironment() && !TraceExtensions.IsAjaxRequest(httpRequest) &&
                     TraceExtensions.MismatchedHostReferer(httpRequest))
                 {
-                    httpContext.Response.Headers.Add("X-FRAME-OPTIONS", "DENY");
+                    // httpContext.Response.Headers.Add("X-FRAME-OPTIONS", "DENY");
                 }
 
                 if (TraceServices.TraceLevel != TraceLevel.Verbose)
