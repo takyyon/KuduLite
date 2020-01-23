@@ -119,18 +119,6 @@ namespace Kudu.Services.Web.Tracing
                 {
                     // httpContext.Response.Headers.Add("X-FRAME-OPTIONS", "DENY");
                 }
-                
-                if(Environment.IsAzureEnvironment()){
-                    httpContext.Response.Headers.Add("Azure-Data", "1");
-                }
-                
-                if(!TraceExtensions.IsAjaxRequest(httpRequest)){
-                    httpContext.Response.Headers.Add("Azure-Data", "2");
-                }
-                
-                if(TraceExtensions.MismatchedHostReferer(httpRequest)){
-                    httpContext.Response.Headers.Add("Azure-Data", "3");
-                }
 
                 if (TraceServices.TraceLevel != TraceLevel.Verbose)
                 {
